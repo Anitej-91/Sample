@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+/* Basic Styles */
 *{
     padding: 0;
     margin: 0;
@@ -8,16 +9,17 @@
   
 body{
     background-color: #00246B;
+    font-family: 'Pacifico', cursive;
 }
   
+/* --- This is the menu part --- */
 .icon{
-    padding-top: 15px;
-    padding-bottom: 20px;
     display: flex;
+    flex-direction: column;
     position: fixed;
     z-index: 9999;
-    flex-direction: column;
-    background-color: #00246B;
+    top: 10px;
+    left: 10px;
 }
   
 .line{
@@ -61,21 +63,21 @@ body{
 }
   
 .sidebar{
-    margin-top: 60px;
     padding-top: 20px;
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
     position: fixed;
-    z-index: 9999;
+    flex-direction: column;
     background-color: #00246B;
-    transform: translateX(-180px);
+    transform: translateX(-240px);
     transition: transform 1s;
-    width: 180px;
-    height: 100vh;
+    width: 240px;
+    height: 180vh;
+    box-shadow: 5px 5px 65px rgb(50, 50, 50);
 }
   
+  
 #toggle:checked ~ .sidebar{
-    transform: translateX(0px)
+      transform: translateX(0px)
 }
   
 .sidebar a{
@@ -83,7 +85,6 @@ body{
     text-decoration: none;
     font-size: 20px;
     padding: 10px;
-    transition: padding 0.3s, background-color 0.3s, margin 0.3s;
 }
 
 .sidebar a:hover{
@@ -169,7 +170,7 @@ a{
 
 #name{
     font-size: 30px;
-    font-family: pacifico;
+    font-family: 'Pacifico', cursive;
     font-weight: 100;
 }
 
@@ -254,6 +255,7 @@ h6{
     padding: 15px;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap; /* Wrap items to new rows if needed */
 }
 
 .hot{
@@ -367,4 +369,86 @@ td:hover{
     text-decoration: none;
     font-size: 20px;
     padding: 10px;
+}
+
+/* Media Queries for Mobile (Adjust these breakpoints as needed) */
+@media (max-width: 768px) { /* Styles for tablets and smaller */
+  .header {
+    display: block; /* Stack items vertically */
+    text-align: center;
+    margin-left: 0; /* Remove margin on smaller screens */
+  }
+
+  .product {
+    width: 48%; /* Adjust product width for tablets */
+    margin-bottom: 20px; /* Space products on tablets */
+  }
+
+  #toggle { /* Show toggle button on mobile */
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .sidebar { /* Responsive sidebar */
+    display: block;
+    transform: translateX(0); /* Initially on-screen */
+  }
+
+  #footer-logo {
+    width: 100px; /* Adjust footer logo size for mobile */
+  }
+
+  .row {
+    display: block;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Media Query for Extra Small Devices (Phones) */
+@media (max-width: 480px) { /* Styles for phones */
+  .product {
+    width: 100%; /* Products take full width */
+    margin-bottom: 20px; /* Space products on phones */
+  }
+
+  .hot {
+    height: 150px; /* Adjust image height for smaller phones */
+  }
+
+  .row {
+    display: block;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  input {
+    width: 90%;
+    height: 30px;
+    border: 10px;
+    border-radius: 15px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    padding-top: 20px;
+    text-align: center;
+    transition: font-size 0.5s;
+  }
+
+  h2:hover {
+    color: #00246B;
+    font-size: 200%;
+    text-shadow: 1px 5px 15px rgb(81, 81, 81);
+  }
+
+  #name {
+    font-size: 25px;
+    font-family: 'Pacifico', cursive;
+    font-weight: 100;
+  }
 }
