@@ -4,27 +4,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
+}
   
 body{
     background-color: #00246B;
-}
-  
-.icon{
-    padding-top: 15px;
-    padding-bottom: 20px;
-    display: flex;
-    position: fixed;
-    z-index: 9999;
-    flex-direction: column;
-    background-color: #00246B;
-}
-  
-.line{
-    display: inline-block;
-    width: 30px;
-    height: 3px;
-    background-color: white;
 }
   
 .top{
@@ -44,8 +27,6 @@ body{
 #toggle{
     position: absolute;
     opacity: 0;
-    width: 0;
-    height: 0;
 }
   
 #toggle:checked ~ .icon .top{
@@ -119,13 +100,122 @@ marquee{
     padding-top: 10px;
 }
 
-header{
-    margin-left: 70px;
-    display: flex;
-    background: linear-gradient(to bottom, #021D52, #021a49, #021D52);
-    height: 60px;
-    justify-content: space-evenly;
-    align-items: center;
+@media screen and (max-width:600px)
+{
+    header{
+        margin-left: clamp(30px, 8vw, 100%);
+        display: flex;
+        background: linear-gradient(to bottom, #021D52, #021a49, #021D52);
+        height: 60px;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .icon{
+        padding-top: 2.5%;
+        padding-left: 1%;
+        padding-bottom: 2.5%;
+        padding-right: 1%;
+        display: flex;
+        position: fixed;
+        z-index: 9999;
+        flex-direction: column;
+        background-color: #00246B;
+    }
+    #logo{
+        width: 8vw;
+        height: 8vw;
+        min-width: 35px;
+        min-height: 35px;
+        border-radius: 15px;
+    }
+    
+    #cart{
+        min-width: 25px;
+        max-width: 50px;
+        min-height: 25px;
+        max-height: 50px;
+        border-radius: 10px;
+        vertical-align: middle;
+    }
+    .address{
+        display: none;
+    }
+    input{
+        width: 60%;
+        height: 30px;
+        border: 10px;
+        border-radius: 15px;
+        font-size: clamp(0.5rem,3vw,1.3rem);
+        padding-left: 2px;
+    }
+    a{
+        font-size: clamp(0.5rem,3vw,1.3rem);
+        color: whitesmoke;
+        text-decoration: none;
+        margin-left: 3%;
+        margin-right: 3%;
+        text-align: center;
+        vertical-align: middle;
+    }
+    
+    #name{
+        font-size: clamp(0.5rem,3vw,1.3rem);
+        font-family: pacifico;
+        font-weight: 100;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+}
+
+@media screen and (min-width:601px)
+{
+    header{
+        margin-left: 50px;
+        display: flex;
+        background: linear-gradient(to bottom, #021D52, #021a49, #021D52);
+        height: 60px;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .icon{
+        padding-left: 8px;
+        padding-top: 18px;
+        display: flex;
+        position: fixed;
+        z-index: 9999;
+        flex-direction: column;
+        background-color: #00246B;
+    }
+    a{
+        color: whitesmoke;
+        text-decoration: none;
+        margin-left: 2%;
+        margin-right: 2%;
+        text-align: center;
+        vertical-align: middle;
+    }
+    
+    #name{
+        font-size: clamp(1rem,3vw,1.2rem);
+        font-family: pacifico;
+        font-weight: 100;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    #logo{
+        width: 5vw;
+        height: 5vw;
+        border-radius: 15px;
+    }
+    
+    #cart{
+        width: 5vw;
+        height: 5vw;
+        max-width: 50px;
+        max-height: 50px;
+        border-radius: 10px;
+        vertical-align: middle;
+    }
 }
 
 .header:hover{
@@ -143,34 +233,7 @@ footer{
 }
 
 .main{
-    height: 175vh;
     background-color: #CADCFC;
-}
-
-#logo{
-    width: 50px;
-    height: 50px;
-    border-radius: 15px;
-}
-
-#cart{
-    width: 40px;
-    border-radius: 10px;
-    vertical-align: middle;
-}
-
-a{
-    color: whitesmoke;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-    vertical-align: middle;
-}
-
-#name{
-    font-size: 30px;
-    font-family: pacifico;
-    font-weight: 100;
 }
 
 table{
@@ -252,6 +315,7 @@ h6{
 .row{
     display: flex;
     padding: 15px;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }
@@ -280,33 +344,66 @@ h2:hover{
     text-shadow: 1px 5px 15px rgb(81, 81, 81);
 }
 
-.header:hover{
-    color: yellow;
-}
-
-
-table{
-    margin: auto;
-}
-
-table,th,td{
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-td:hover{
-    text-align: center;
-    color: yellow;
-}
-/* --- This is the menu part --- */
-.icon{
+/* Flexbox container */
+.flex-container {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between; /* Distributes sections evenly */
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    background-color: #00246B; /* Sets background color */
+    padding: 10px; /* Adds padding around the flex container */
 }
+
+/* Section styling */
+.section {
+    flex: 1; /* Takes equal space within the flex container */
+    margin-bottom: 10px; /* Adds spacing between sections */
+}
+
+/* Heading styling */
+.heading {
+    padding: 8px; /* Adds padding inside each item */
+    background-color: #00246B; /* Sets background color */
+    text-decoration: none; /* Optional: Removes default underline */
+    color: white; /* Sets text color to white */
+    text-align: center; /* Centers text horizontally */
+    margin-bottom: 10px; /* Adds spacing below the heading */
+    font-weight: bold; /* Makes the heading text bold */
+    font-size: 1.2em; /* Increases the font size of the heading */
+}
+
+/* Item styling */
+.item {
+    padding: 8px; /* Adds padding inside each item */
+    background-color: #00246B; /* Sets background color */
+    text-decoration: none; /* Optional: Removes default underline */
+    color: white; /* Sets text color to white */
+    text-align: center; /* Centers text horizontally */
+    margin-right: 10px; /* Adds spacing between items horizontally */
+    transition: color 0.3s, text-shadow 0.3s; /* Smooth transition for color and text-shadow */
+}
+
+/* Hover effect on items */
+.item:hover {
+    background-color: #021D52; /* Changes background color on hover */
+    cursor: pointer; /* Shows pointer cursor on hover */
+    color: yellow; /* Changes text color to yellow on hover */
+    text-shadow: 1px 1px 3px yellow; /* Adds yellow shadow on hover */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 360px) {
+    .section {
+        flex: 0 0 100%; /* Makes sections take full width on smaller screens */
+    }
+}
+
   
 .line{
     display: inline-block;
-    width: 30px;
+    width: 5vw;
+    padding: 3%;
+    max-width: 30px;
+    min-width: 20px;
     height: 3px;
     background-color: white;
 }
@@ -323,25 +420,6 @@ td:hover{
 .bottom{
     margin-top: 8px;
     transition: transform 1s;
-}
-  
-#toggle{
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-  
-#toggle:checked ~ .icon .top{
-    transform: translateY(12px) rotate(45deg);
-}
-  
-#toggle:checked ~ .icon .middle{
-    background-color: #00246B;
-}
-  
-#toggle:checked ~ .icon .bottom{
-    transform: translateY(-12px) rotate(-45deg);
 }
   
 .sidebar{
